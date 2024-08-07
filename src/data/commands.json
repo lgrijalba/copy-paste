@@ -1,0 +1,17 @@
+[
+{
+    "title": "SSH CONNECT",
+    "command": "ssh ~~~-p22022 ~~~user@host",
+    "description": ""
+},
+{
+    "title": "COMMIT AMEND",
+    "command": "git commit --amend",
+    "description": "reescribir el comentario del último commit"
+},
+{
+    "title": null,
+    "command": null,
+    "description": null
+}
+]

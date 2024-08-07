@@ -1,58 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ListCopyPaste from "../components/List.vue";
+import type { Command } from "../types";
+import data from "../data/commands.json"
 ---
-
-<script>
-  const contentToCopy = document.querySelector(".content-to-copy");
-  document
-    .querySelector(".copy-button")
-    .addEventListener("click", () =>
-      navigator.clipboard.writeText(
-        contentToCopy.textContent.replace(/\n/g, "")
-      )
-    );
-</script>
 
 <Layout title="Copy Paste">
   <main>
     <h1>Copy - <span class="text-gradient">Paste</span></h1>
-
-    <section>
-      <h5 class="title">SSH CONNECT</h5>
-      <div class="wrapper">
-        <p class="content-to-copy">
-          ssh&nbsp-p&nbsp<span class="editable-text" contenteditable="true"
-            >22022</span
-          >&nbsp<span class="editable-text" contenteditable="true">user</span
-          >@<span class="editable-text" contenteditable="true">ip</span>
-        </p>
-
-        <button class="copy-button">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="27"
-            height="27"
-            fill="none"
-            viewBox="0 0 24 24"
-            class="icon-sm"
-            ><path
-              fill="currentColor"
-              fill-rule="evenodd"
-              d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"
-              clip-rule="evenodd"></path></svg
-          >
-        </button>
-      </div>
-      <p class="description">
-        Una descripción: ➡️ este comando sirve pa acceder remotemente a una
-        máquina
-      </p>
-    </section>
+    <ListCopyPaste commands={data} client:load/>
   </main>
 
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
-
     main {
       margin: 0 130px;
       padding: 1rem;
@@ -66,67 +25,13 @@ import Layout from "../layouts/Layout.astro";
       text-align: center;
       margin-bottom: 1em;
     }
+
     .text-gradient {
       background-image: var(--accent-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-size: 400%;
       background-position: 0%;
-    }
-
-    .wrapper {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #636363;
-      padding: 0 10px;
-      border-radius: 0.8rem;
-      color: white;
-      height: 43px;
-      font-size: 1rem;
-      padding: 0 30px;
-
-      /*TODO:  font-family: roboto; */
-      font-family: "Roboto Mono", monospace;
-      font-optical-sizing: auto;
-      font-style: normal;
-    }
-
-    .copy-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      margin: 0;
-      color: unset;
-
-      display: flex;
-      align-items: center;
-    }
-
-    .content-to-copy {
-      padding: 0;
-      margin: 0;
-    }
-
-    .editable-text {
-      background-color: #d9d9d967;
-      border-radius: 4px;
-      padding: 0 3px;
-    }
-
-    .title,
-    .description {
-      margin: 0 0 0 30px;
-    }
-
-    .title{
-      color: #ffffff;
-    }
-
-    .description {
-      font-size: .8rem;
     }
   </style>
 </Layout>
