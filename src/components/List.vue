@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import type { PropType } from 'vue';
+import type { Command } from '../types'
 import CopyPaste from './CopyPaste.vue'
 
-// TODO: Define the props and options
 defineOptions({ inheritAttrs: false })
 
-const {commands} = defineProps(["commands"])
+const {commands} = defineProps({
+    commands: {
+        type: Array as PropType<Command[]>,
+        required: true
+    }
+})
 let filter = ref([...commands])
 
 const handleChange = (event) => {

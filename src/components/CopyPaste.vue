@@ -1,7 +1,13 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
+import type { PropType } from 'vue'
 import type {Command} from '../types'
-const props = defineProps(['command'])
+const props = defineProps({
+  command: {
+    type: Object as PropType<Command>,
+    required: true
+  }
+})
 const {title, command, description} = props.command
 const contentToCopy = ref()
 const words = command?.split(" ");
