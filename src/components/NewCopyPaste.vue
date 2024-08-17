@@ -35,20 +35,20 @@ const addCommand = (e) => {
 <template>
     <div class="wrapper">
         <form @submit="addCommand">
-                <template>
+                <div>
                     <h5>Title</h5>
                     <input v-model="inputTitle" type="text">
-                </template>
+                </div>
 
-                <template>
+                <div>
                     <h5>Command: words starting with ~~~ will be editable</h5>
                     <input v-model="inputCommand" type="text">
-                </template>
+                </div>
 
-                <template>
+                <div>
                     <h5>Description</h5>
                     <input v-model="inputDescription" type="text" >
-                </template>
+                </div>
 
                 <button hidden type="submit"></button>
         </form>
