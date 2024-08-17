@@ -64,6 +64,7 @@ const addCommand = (e) => {
 
 .wrapper {
     position: absolute;
+    z-index: 100;
     left: 50%;
     transform: translate(-50%, 0);
 
